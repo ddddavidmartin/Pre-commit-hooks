@@ -1,0 +1,29 @@
+#!/bin/sh
+# Git pre-commit hook that runs multiple hooks specified in $HOOKS.
+# Make sure this script is executable. Bypass hooks with git commit --no-verify.
+
+# pre-commit hooks to be executed. They should be in the same .git/hooks/ folder
+# as this script.
+HOOKS="pre-commit-default pre-commit-compile pre-commit-style"
+
+# Absolute path to this script, e.g. /home/user/bin/foo.sh
+SCRIPT=`readlink -f $0`
+
+# Absolute path this script is in, thus /home/user/bin
+SCRIPTPATH=`dirname $SCRIPT`
+
+
+for hook in $HOOKS
+do
+    echo "Running hook: $hook"
+    # run hook if it exists
+    # if it returns with nonzero exit with 1 and thus abort the commit
+    if [ -f "$SCRIPTPATH/$hook" ]; then
+        $SCRIPTPATH/$hook
+        if [ $? != 0 ]; then
+            exit 1
+        fi
+    else
+        echo "Error: file $hook not found."
+    fi
+done
