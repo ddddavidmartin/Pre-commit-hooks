@@ -1,12 +1,17 @@
 #!/bin/sh
 
 # Git pre-commit compile hook. Make project and in case of error abort commit.
-# Script taken from: http://benjamin-meyer.blogspot.com/2008/10/git-hooks.html 
+# Script based on: http://benjamin-meyer.blogspot.com/2008/10/git-hooks.html
+# Make sure this script is executable and set the Makefile location MAKEFILE.
 
+# Path to your makefile, eg. "/home/user/project/src/Makefile"
+MAKEFILE="/home/user/project/src/Makefile"
+MAKEPATH=`dirname $MAKEFILE`
 
 echo "Building project."
-if [ -f Makefile ] ; then
-    make -j --quiet 
+if [ -f $MAKEFILE ] ; then
+    cd $MAKEPATH
+    make -j --quiet -f $MAKEFILE
     if [ $? != 0 ] ; then
         echo "Build failure. Aborting commit.";
         exit 1
