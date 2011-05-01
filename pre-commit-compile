@@ -18,7 +18,10 @@ if [ -f $MAKEFILE ] ; then
     fi
     echo "Build success."
 else
-    echo "Error: Makefile not found."
+    echo "Error: Makefile not found. Aborting commit."
+    echo "Set the correct path in $(readlink -f $0)."
+    echo "Skip pre-commit hooks with --no-verify (not recommended)."
+    exit 1
 fi
 
 exit 0
