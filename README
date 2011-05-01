@@ -1,1 +1,10 @@
-This repository contains some pre-commit hooks that I use.
+This repository contains some pre-commit hooks that I use. More specifically:
+
+pre-commit: allow to run multiple pre-commit hooks as specified in the script
+
+
+pre-commit-default: the default git pre-commit hook checking eg. for trailing
+                    whitespaces
+
+pre-commit-compile: compile the project before committing and abort commit if
+                    it fails
