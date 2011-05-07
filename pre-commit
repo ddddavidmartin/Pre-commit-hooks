@@ -26,5 +26,8 @@ do
         fi
     else
         echo "Error: file $hook not found."
+        echo "Aborting commit. Make sure the hook is in $SCRIPTPATH and executable."
+        echo "You can skip the pre-commit hooks with --no-verify (not recommended)."
+        exit 1
     fi
 done
