@@ -1,10 +1,14 @@
-This repository contains some pre-commit hooks that I use. More specifically:
+This repository contains some useful pre-commit hooks to use with git.
 
-pre-commit: allow to run multiple pre-commit hooks as specified in the script
+install_hooks.sh:
+    Copy hooks over to your local git repository.
 
+pre-commit:
+    Allow to run multiple pre-commit hooks as specified in the script.
 
-pre-commit-default: the default git pre-commit hook checking eg. for trailing
-                    whitespaces
+pre-commit-compile:
+    Compile the project and abort commit if it fails.
 
-pre-commit-compile: compile the project before committing and abort commit if
-                    it fails
+pre-commit-default:
+    The default git pre-commit hook checkings for example for trailing
+    whitespaces.
