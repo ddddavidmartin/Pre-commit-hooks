@@ -6,7 +6,7 @@
 
 # Path to your makefile, eg. "/home/user/project/src/Makefile"
 MAKEFILE="/home/user/project/src/Makefile"
-MAKEPATH=`dirname $MAKEFILE`
+MAKEPATH=$(dirname $MAKEFILE)
 
 echo "Building project."
 if [ -f $MAKEFILE ] ; then
