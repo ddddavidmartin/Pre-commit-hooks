@@ -14,6 +14,10 @@ HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
 
+
+# exit on error
+set -e
+
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f $0)
 

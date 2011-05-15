@@ -12,6 +12,9 @@ MAKEFILE="/home/user/project/src/Makefile"
 # There should be no need to change anything below this line.
 
 
+# exit on error
+set -e
+
 MAKEPATH=$(dirname $MAKEFILE)
 
 echo "Building project."
