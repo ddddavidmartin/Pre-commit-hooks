@@ -5,7 +5,7 @@
 # pre-commit hooks to be executed. They should be in the same .git/hooks/ folder
 # as this script. Hooks should return 0 if successful and nonzero to cancel the
 # commit.
-HOOKS="pre-commit-default pre-commit-compile"
+HOOKS="pre-commit-default pre-commit-compile pre-commit-uncrustify"
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f $0)

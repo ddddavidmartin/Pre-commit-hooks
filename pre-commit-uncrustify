@@ -1,0 +1,79 @@
+#!/bin/sh
+
+# git pre-commit hook that runs an uncrustify stylecheck.
+# Features:
+#  - abort commit when commit does not comply with the style guidelines
+#  - create a patch of the proposed style changes
+
+
+##################################################################
+# Settings
+# set uncrustify config location, eg. /home/user/.config/uncrustify.cfg
+CONFIG="/unspecified/"
+
+# set path to uncrustify binary, eg. /usr/bin/uncrustify
+UNCRUSTIFY="/usr/bin/uncrustify"
+##################################################################
+# There should be no need to change anything below this line.
+
+
+# exit on error
+set -e
+
+# necessary check for initial commit
+if git rev-parse --verify HEAD >/dev/null 2>&1 ; then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# make sure the config file and executable are correctly set
+if [ ! -f $CONFIG ] ; then
+    printf "Error: uncrustify config file not found.\n"
+    printf "Set the correct path in $(readlink -f $0).\n"
+    exit 1
+fi
+
+if [ ! -x $UNCRUSTIFY ] ; then
+    printf "Error: uncrustify executable not found.\n"
+    printf "Set the correct path in $(readlink -f $0).\n"
+    exit 1
+fi
+
+# create a random filename to store our generated patch
+prefix=pre-commit-uncrustify
+suffix=$(date +%s)
+patch=/tmp/$prefix-$suffix.patch
+
+# clean up any older uncrustify patches
+rm -f /tmp/$prefix*.patch
+
+# create one patch containing all changes to the files
+for file in $(git diff-index --cached --diff-filter=ACMR --name-only $against --)
+do
+    # uncrustify our sourcefile, create a patch with diff and append it to our $patch
+    # The sed call is necessary to transform the patch from
+    #    --- $file timestamp
+    #    +++ - timestamp
+    # to both lines working on the same file. Else it can not be applied with 'git apply'.
+    $UNCRUSTIFY -c $CONFIG -f $file | diff -u $file - | sed "2s/+++ -/+++ $file/" >> $patch
+done
+
+# if no patch has been generated all is ok, clean up the file stub and exit
+if [ ! -s $patch ] ; then
+    printf "No style violations found.\n"
+    rm -f $patch
+    exit 0
+fi
+
+# a patch has been created, notify the user and exit
+printf "The following changes were found between the code to commit and the "
+printf "uncrustify rules:\n"
+cat $patch
+
+printf "You can apply these changes with:\n git apply $patch \n"
+printf "Aborting commit. Apply changes and commit again or skip checking with"
+printf " --no-verify (not recommended).\n"
+
+exit 1
