@@ -13,7 +13,7 @@ if [ -f $MAKEFILE ] ; then
     cd $MAKEPATH
     make -j --quiet -f $MAKEFILE
     if [ $? != 0 ] ; then
-        echo "Build failure. Aborting commit.";
+        echo "Build failure. Aborting commit."
         exit 1
     fi
     echo "Build success."
