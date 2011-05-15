@@ -7,7 +7,7 @@
 
 
 ##################################################################
-# Settings
+# SETTINGS
 # set uncrustify config location, eg. /home/user/.config/uncrustify.cfg
 CONFIG="/unspecified/"
 

@@ -4,8 +4,14 @@
 # Script based on: http://benjamin-meyer.blogspot.com/2008/10/git-hooks.html
 # Make sure this script is executable and set the Makefile location MAKEFILE.
 
+###########################################################
+# Settings:
 # Path to your makefile, eg. "/home/user/project/src/Makefile"
 MAKEFILE="/home/user/project/src/Makefile"
+###########################################################
+# There should be no need to change anything below this line.
+
+
 MAKEPATH=$(dirname $MAKEFILE)
 
 echo "Building project."
