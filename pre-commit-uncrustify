@@ -62,7 +62,7 @@ done
 
 # if no patch has been generated all is ok, clean up the file stub and exit
 if [ ! -s $patch ] ; then
-    printf "No style violations found.\n"
+    printf "Files in this commit comply with the uncrustify rules.\n"
     rm -f $patch
     exit 0
 fi
