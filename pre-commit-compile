@@ -6,7 +6,8 @@
 
 ###########################################################
 # Settings:
-# Path to your makefile, eg. "/home/user/project/src/Makefile"
+# Path to your makefile
+# MAKEFILE="/home/user/project/src/Makefile"
 MAKEFILE="/home/user/project/src/Makefile"
 
 # Additional options for the make call. Eg. --quiet to not print any output

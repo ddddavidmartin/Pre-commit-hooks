@@ -8,10 +8,12 @@
 
 ##################################################################
 # SETTINGS
-# set uncrustify config location, eg. /home/user/.config/uncrustify.cfg
+# set uncrustify config location
+# CONFIG="/home/user/.config/uncrustify.cfg"
 CONFIG="/unspecified/"
 
-# set path to uncrustify binary, eg. /usr/bin/uncrustify
+# set path to uncrustify binary
+# UNCRUSTIFY="/usr/bin/uncrustify"
 UNCRUSTIFY="/usr/bin/uncrustify"
 ##################################################################
 # There should be no need to change anything below this line.
