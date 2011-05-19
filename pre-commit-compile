@@ -8,6 +8,11 @@
 # Settings:
 # Path to your makefile, eg. "/home/user/project/src/Makefile"
 MAKEFILE="/home/user/project/src/Makefile"
+
+# Additional options for the make call. Eg. --quiet to not print any output
+# or -j to make use of multiple cpu cores.
+# OPTIONS="--quiet -j"
+OPTIONS="--quiet"
 ###########################################################
 # There should be no need to change anything below this line.
 
@@ -20,7 +25,7 @@ MAKEPATH=$(dirname $MAKEFILE)
 echo "Building project."
 if [ -f $MAKEFILE ] ; then
     cd $MAKEPATH
-    make -j --quiet -f $MAKEFILE
+    make $OPTIONS -f $MAKEFILE
     if [ $? != 0 ] ; then
         echo "Build failure. Aborting commit."
         exit 1
