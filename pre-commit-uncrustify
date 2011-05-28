@@ -63,7 +63,7 @@ do
     #    --- $file timestamp
     #    +++ - timestamp
     # to both lines working on the same file. Else it can not be applied with 'git apply'.
-    $UNCRUSTIFY -c $CONFIG -f $file | diff -u $file - | sed "2s/+++ -/+++ $file/" >> $patch
+    $UNCRUSTIFY -c $CONFIG -f $file | diff -u $file - | sed "2s|+++ -|+++ $file|" >> $patch
 done
 
 # if no patch has been generated all is ok, clean up the file stub and exit
