@@ -5,7 +5,7 @@
 # Make sure this script is executable and set the Makefile location MAKEFILE.
 
 ###########################################################
-# Settings:
+# SETTINGS:
 # Path to your makefile
 # MAKEFILE="/home/user/project/src/Makefile"
 MAKEFILE="/home/user/project/src/Makefile"
