@@ -1,9 +1,11 @@
 #!/bin/sh
 
-# git pre-commit hook that runs an uncrustify stylecheck.
+# git pre-commit hook that runs an Uncrustify stylecheck.
 # Features:
 #  - abort commit when commit does not comply with the style guidelines
 #  - create a patch of the proposed style changes
+#
+# More info on Uncrustify: http://uncrustify.sourceforge.net/
 
 # This file is part of a set of unofficial pre-commit hooks available
 # at github.
