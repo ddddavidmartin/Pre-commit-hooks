@@ -5,6 +5,11 @@
 #  - abort commit when commit does not comply with the style guidelines
 #  - create a patch of the proposed style changes
 
+# This file is part of a set of unofficial pre-commit hooks available
+# at github.
+# Link:    https://github.com/githubbrowser/Pre-commit-hooks
+# Contact: David Martin, david.martin.mailbox@googlemail.com
+
 
 ##################################################################
 # SETTINGS

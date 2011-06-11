@@ -4,6 +4,12 @@
 # Script based on: http://benjamin-meyer.blogspot.com/2008/10/git-hooks.html
 # Make sure this script is executable and set the Makefile location MAKEFILE.
 
+# This file is part of a set of unofficial pre-commit hooks available
+# at github.
+# Link:    https://github.com/githubbrowser/Pre-commit-hooks
+# Contact: David Martin, david.martin.mailbox@googlemail.com
+
+
 ###########################################################
 # SETTINGS:
 # Path to your makefile

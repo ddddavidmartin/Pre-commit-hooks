@@ -2,6 +2,12 @@
 # Git pre-commit hook that runs multiple hooks specified in $HOOKS.
 # Make sure this script is executable. Bypass hooks with git commit --no-verify.
 
+# This file is part of a set of unofficial pre-commit hooks available
+# at github.
+# Link:    https://github.com/githubbrowser/Pre-commit-hooks
+# Contact: David Martin, david.martin.mailbox@googlemail.com
+
+
 ###########################################################
 # SETTINGS:
 # pre-commit hooks to be executed. They should be in the same .git/hooks/ folder

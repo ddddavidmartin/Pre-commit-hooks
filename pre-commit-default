@@ -5,6 +5,12 @@
 # exit with non-zero status after issuing an appropriate message if
 # it wants to stop the commit.
 
+# This file is part of a set of unofficial pre-commit hooks available
+# at github.
+# Link:    https://github.com/githubbrowser/Pre-commit-hooks
+# Contact: David Martin, david.martin.mailbox@googlemail.com
+
+
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
 	against=HEAD

@@ -3,9 +3,11 @@
 # Install git pre-commit hooks.
 # The root directory of the target local git repository is expected as a parameter.
 
-# This script is part of the pre-commit hooks available at github.
+# This file is part of a set of unofficial pre-commit hooks available
+# at github.
 # Link:    https://github.com/githubbrowser/Pre-commit-hooks
 # Contact: David Martin, david.martin.mailbox@googlemail.com
+
 
 ###########################################################
 # SETTINGS:
