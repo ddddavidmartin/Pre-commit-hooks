@@ -16,7 +16,7 @@ repository. You can do this by hand or by calling
 ./install_hooks.sh /path/to/repository
 
 The script will ask if any existing files are to be overwritten.
-Note that any existing pre-commit hook has to be overwritten.
+Note that the existing pre-commit hook has to be overwritten.
 You can rename it and add it to the list of executed hooks in the
 pre-commit file included with these scripts to have it executed as
 before.
