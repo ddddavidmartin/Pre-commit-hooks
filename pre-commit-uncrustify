@@ -81,8 +81,8 @@ if [ ! -s $patch ] ; then
 fi
 
 # a patch has been created, notify the user and exit
-printf "The following changes were found between the code to commit and the "
-printf "uncrustify rules:\n"
+printf "\nThe following differences were found between the code to commit "
+printf "and the uncrustify rules:\n\n"
 cat $patch
 
 printf "\nYou can apply these changes with:\n git apply $patch\n"
