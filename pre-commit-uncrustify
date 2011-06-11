@@ -85,8 +85,8 @@ printf "The following changes were found between the code to commit and the "
 printf "uncrustify rules:\n"
 cat $patch
 
-printf "You can apply these changes with:\n git apply $patch from the root directory"
-printf "of your repository.\n"
+printf "\nYou can apply these changes with:\n git apply $patch\n"
+printf "(may need to be called from the root directory of your repository)\n"
 printf "Aborting commit. Apply changes and commit again or skip checking with"
 printf " --no-verify (not recommended).\n"
 
