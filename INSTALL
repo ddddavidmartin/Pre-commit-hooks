@@ -1,0 +1,44 @@
+How to get the pre-commit hooks.
+================================
+
+The hooks coming with this file are located at
+https://github.com/githubbrowser/Pre-commit-hooks
+
+You can download them directly or do a checkout with
+git clone git://github.com/githubbrowser/Pre-commit-hooks.git git-hooks
+
+
+How to install the pre-commit hooks.
+====================================
+
+Copy the pre-commit hooks into the .git/hooks folder of your local git
+repository. You can do this by hand or by calling
+./install_hooks.sh /path/to/repository
+
+The script will ask if any existing files are to be overwritten.
+Note that any existing pre-commit hook has to be overwritten.
+You can rename it and add it to the list of executed hooks in the
+pre-commit file included with these scripts to have it executed as
+before.
+
+You can specify which hooks are installed in install_hooks.sh.
+You can specify which hooks are run before commits in pre-commit.
+
+Some of the pre-commit hooks have settings that need to be specified.
+They should be self-explanatory and are located at the top of the
+respective file. If a hook fails because of invalid settings it will
+report it and abort the commmit.
+
+
+How to use the pre-commit hooks.
+================================
+
+When the hooks are correctly installed all you have to do is hack away
+and commit files. The hooks will be executed and if any check fails
+the commit will be aborted and a notice printed.
+
+You can skip pre-commit checking with the option --no-verify.
+For example 'git commit foo.c --no-verify'. This can come in handy
+when you are checking in files that are not supposed to be parsed by
+stylechecks (like .tex documentation) or you don't mind your commit
+not compiling (which is evil and makes you an evil person).
