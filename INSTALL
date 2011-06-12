@@ -21,13 +21,18 @@ You can rename it and add it to the list of executed hooks in the
 pre-commit file included with these scripts to have it executed as
 before.
 
-You can specify which hooks are installed in install_hooks.sh.
-You can specify which hooks are run before commits in pre-commit.
-
 Some of the pre-commit hooks have settings that need to be specified.
 They should be self-explanatory and are located at the top of the
 respective file. If a hook fails because of invalid settings it will
 report it and abort the commmit.
+
+
+How to select which hooks are installed or executed.
+====================================================
+
+You can specify which hooks are installed in install_hooks.sh.
+You can specify which hooks are run before commits in pre-commit.
+Note that by default all hooks are installed and specified to be run.
 
 
 How to use the pre-commit hooks.
