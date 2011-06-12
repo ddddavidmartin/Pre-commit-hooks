@@ -26,12 +26,36 @@ UNCRUSTIFY="/usr/bin/uncrustify"
 # remove any older patches from previous commits. Set to true or false.
 # DELETE_OLD_PATCHES=false
 DELETE_OLD_PATCHES=false
+
+# only parse files with the extensions in FILE_EXTS. Set to true or false.
+# if false every changed file in the commit will be parsed with Uncrustify.
+# if true only files matching one of the extensions are parsed with Uncrustify.
+# PARSE_EXTS=true
+PARSE_EXTS=true
+
+# file types to parse. Only effective when PARSE_EXTS is true.
+# FILE_EXTS=".c .h .cpp .hpp"
+FILE_EXTS=".c .h .cpp .hpp"
+
 ##################################################################
 # There should be no need to change anything below this line.
 
 
 # exit on error
 set -e
+
+# check whether the given file matches any of the set extensions
+matches_extension() {
+    for ext in $FILE_EXTS
+    do
+        # escape dot in file extension to grep it
+        ext=$(echo $ext | sed 's/\./\\./' -)
+
+        echo $1 | grep -iq "$ext"$ - && return 0
+    done
+
+    return 1
+}
 
 # necessary check for initial commit
 if git rev-parse --verify HEAD >/dev/null 2>&1 ; then
@@ -65,6 +89,12 @@ $DELETE_OLD_PATCHES && rm -f /tmp/$prefix*.patch
 # create one patch containing all changes to the files
 for file in $(git diff-index --cached --diff-filter=ACMR --name-only $against --)
 do
+    # ignore file if we do check for file extensions and the file
+    # does not match any of the extensions specified in $FILE_EXTS
+    if $PARSE_EXTS && ! matches_extension $file; then
+        continue;
+    fi
+
     # uncrustify our sourcefile, create a patch with diff and append it to our $patch
     # The sed call is necessary to transform the patch from
     #    --- $file timestamp
