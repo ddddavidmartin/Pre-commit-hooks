@@ -27,12 +27,12 @@ OPTIONS="--quiet"
 # exit on error
 set -e
 
-MAKEPATH=$(dirname $MAKEFILE)
+MAKEPATH="$(dirname "$MAKEFILE")"
 
 echo "Building project."
-if [ -f $MAKEFILE ] ; then
-    cd $MAKEPATH
-    make $OPTIONS -f $MAKEFILE
+if [ -f "$MAKEFILE" ] ; then
+    cd "$MAKEPATH"
+    make $OPTIONS -f "$MAKEFILE"
     if [ $? != 0 ] ; then
         echo "Build failure. Aborting commit."
         exit 1
@@ -40,7 +40,7 @@ if [ -f $MAKEFILE ] ; then
     echo "Build success."
 else
     echo "Error: Makefile not found. Aborting commit."
-    echo "Set the correct path in $(readlink -f $0)."
+    echo "Set the correct path in $(readlink -f "$0")."
     echo "Skip pre-commit hooks with --no-verify (not recommended)."
     exit 1
 fi

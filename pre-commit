@@ -23,10 +23,10 @@ HOOKS="pre-commit-default pre-commit-compile pre-commit-uncrustify"
 set -e
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
-SCRIPT=$(readlink -f $0)
+SCRIPT="$(readlink -f "$0")"
 
 # Absolute path this script is in, thus /home/user/bin
-SCRIPTPATH=$(dirname $SCRIPT)
+SCRIPTPATH="$(dirname "$SCRIPT")"
 
 
 for hook in $HOOKS
@@ -35,7 +35,7 @@ do
     # run hook if it exists
     # if it returns with nonzero exit with 1 and thus abort the commit
     if [ -f "$SCRIPTPATH/$hook" ]; then
-        $SCRIPTPATH/$hook
+        "$SCRIPTPATH/$hook"
         if [ $? != 0 ]; then
             exit 1
         fi

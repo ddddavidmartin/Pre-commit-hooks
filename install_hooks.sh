@@ -22,29 +22,29 @@ HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
 set -e
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
-SCRIPT=$(readlink -f $0)
+SCRIPT="$(readlink -f "$0")"
 
 # Absolute path this script is in, e.g. /home/user/bin/
-SCRIPTPATH=$(dirname $SCRIPT)
+SCRIPTPATH="$(dirname "$SCRIPT")"
 
 
 # copy hooks to the directory specified as parameter
 copy_hooks() {
     # create hooks subfolder if it does not yet exist
-    mkdir -p $1/hooks
+    mkdir -p "$1/hooks"
 
     echo "Copying hooks to destination directory:"
     for hook in $HOOKS
     do
         echo "Copying $hook to $1/hooks."
-        cp -i $SCRIPTPATH/$hook $1/hooks
+        cp -i "$SCRIPTPATH/$hook" "$1/hooks"
     done
 
     echo ""
     echo "Checking if hooks are executable:"
     for hook in $HOOKS
     do
-        if [ ! -x $1/hooks/$hook ] ; then
+        if [ ! -x "$1/hooks/$hook" ] ; then
             echo "$hook is not executable. Fix it by calling"
             echo "sudo chmod +x $1/hooks/$hook"
         else
@@ -58,7 +58,7 @@ echo ""
 echo "Git pre-commit hook installation."
 if [ $# = 1 ] ; then
     if [ -d "$1/.git" ] ; then
-        copy_hooks $1/.git
+        copy_hooks "$1/.git"
         echo ""
         echo "Finished installation."
     else
