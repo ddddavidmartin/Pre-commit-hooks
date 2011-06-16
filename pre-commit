@@ -13,8 +13,8 @@
 # pre-commit hooks to be executed. They should be in the same .git/hooks/ folder
 # as this script. Hooks should return 0 if successful and nonzero to cancel the
 # commit. They are executed in the order in which they are listed.
-#HOOKS="pre-commit-default pre-commit-compile pre-commit-uncrustify"
-HOOKS="pre-commit-default pre-commit-compile pre-commit-uncrustify"
+#HOOKS=(pre-commit-default pre-commit-compile pre-commit-uncrustify)
+HOOKS=(pre-commit-default pre-commit-compile pre-commit-uncrustify)
 ###########################################################
 # There should be no need to change anything below this line.
 
@@ -29,7 +29,7 @@ SCRIPT="$(readlink -f "$0")"
 SCRIPTPATH="$(dirname "$SCRIPT")"
 
 
-for hook in $HOOKS
+for hook in ${HOOKS[@]}
 do
     echo "Running hook: $hook"
     # run hook if it exists

@@ -12,8 +12,8 @@
 ###########################################################
 # SETTINGS:
 # select which pre-commit hooks are going to be installed
-#HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
-HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
+#HOOKS=(pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify)
+HOOKS=(pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify)
 ###########################################################
 # There should be no need to change anything below this line.
 
@@ -34,7 +34,7 @@ copy_hooks() {
     mkdir -p "$1/hooks"
 
     echo "Copying hooks to destination directory:"
-    for hook in $HOOKS
+    for hook in ${HOOKS[@]}
     do
         echo "Copying $hook to $1/hooks."
         cp -i "$SCRIPTPATH/$hook" "$1/hooks"
@@ -42,7 +42,7 @@ copy_hooks() {
 
     echo ""
     echo "Checking if hooks are executable:"
-    for hook in $HOOKS
+    for hook in ${HOOKS[@]}
     do
         if [ ! -x "$1/hooks/$hook" ] ; then
             echo "$hook is not executable. Fix it by calling"
