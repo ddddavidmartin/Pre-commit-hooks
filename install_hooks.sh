@@ -17,13 +17,13 @@ HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
 
-source $(dirname "$0")/"canonicalizeFilename.sh"
+source $(dirname "$0")/"canonicalize_filename.sh"
 
 # exit on error
 set -e
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
-SCRIPT="$(canonicalizeFilename "$0")"
+SCRIPT="$(canonicalize_filename "$0")"
 
 # Absolute path this script is in, e.g. /home/user/bin/
 SCRIPTPATH="$(dirname "$SCRIPT")"
@@ -60,7 +60,7 @@ echo ""
 if [ $# = 1 ] ; then
     if [ -d "$1/.git" ] ; then
         echo "Copying prerequisites."
-        cp -i "$SCRIPTPATH/canonicalizeFilename.sh" "$1/.git/hooks/"
+        cp -i "$SCRIPTPATH/canonicalize_filename.sh" "$1/.git/hooks/"
         echo ""
         copy_hooks "$1/.git"
         echo ""

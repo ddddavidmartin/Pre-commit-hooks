@@ -12,30 +12,12 @@
 ###########################################################
 # There should be no need to change anything below this line.
 
-# Return the canonicalize filename (physical filename with out any symlinks).
-function canonicalizeFilename () {
-    local target_file=$1
-    local result=""
-
-    # Attempt to use readlink with -f option.  The -f option is only GNU
-    # version of readlink.
-    result="$(readlink -f "$target_file" 2> /dev/null)"
-    if [ $? -ne 0 ]; then
-        # The -f option is not support by the avaialable version of readlink.
-        # Canonicalize by recursively following every symlink in every
-        # component of the specified filename.
-        result=$(canonicalizeFilenameRecursively "$target_file")
-    fi
-
-    echo "$result"
-}
-
 # Canonicalize by recursively following every symlink in every component of the
 # specified filename.  This should reproduce the results of the GNU version of
 # readlink with the -f option.
 #
 # Reference: http://stackoverflow.com/questions/1055671/how-can-i-get-the-behavior-of-gnus-readlink-f-on-a-mac
-function canonicalizeFilenameRecursively () {
+function canonicalize_filename () {
     local target_file=$1
     local physical_directory=""
     local result=""
