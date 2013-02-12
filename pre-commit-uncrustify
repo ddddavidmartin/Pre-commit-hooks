@@ -40,19 +40,18 @@ FILE_EXTS=".c .h .cpp .hpp"
 ##################################################################
 # There should be no need to change anything below this line.
 
+source $(dirname "$0")/"canonicalizeFilename.sh"
 
 # exit on error
 set -e
 
 # check whether the given file matches any of the set extensions
 matches_extension() {
-    for ext in $FILE_EXTS
-    do
-        # escape dot in file extension to grep it
-        ext="$(echo $ext | sed 's/\./\\./' -)"
+    local filename=$(basename "$1")
+    local extension=".${filename##*.}"
+    local ext
 
-        echo "$1" | grep -iq "$ext"$ - && return 0
-    done
+    for ext in $FILE_EXTS; do [[ "$ext" == "$extension" ]] && return 0; done
 
     return 1
 }
@@ -68,13 +67,13 @@ fi
 # make sure the config file and executable are correctly set
 if [ ! -f "$CONFIG" ] ; then
     printf "Error: uncrustify config file not found.\n"
-    printf "Set the correct path in $(readlink -f "$0").\n"
+    printf "Set the correct path in $(canonicalizeFilename "$0").\n"
     exit 1
 fi
 
 if [ ! -x "$UNCRUSTIFY" ] ; then
     printf "Error: uncrustify executable not found.\n"
-    printf "Set the correct path in $(readlink -f "$0").\n"
+    printf "Set the correct path in $(canonicalizeFilename "$0").\n"
     exit 1
 fi
 

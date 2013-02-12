@@ -17,16 +17,16 @@ HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
 
+source $(dirname "$0")/"canonicalizeFilename.sh"
 
 # exit on error
 set -e
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
-SCRIPT="$(readlink -f "$0")"
+SCRIPT="$(canonicalizeFilename "$0")"
 
 # Absolute path this script is in, e.g. /home/user/bin/
 SCRIPTPATH="$(dirname "$SCRIPT")"
-
 
 # copy hooks to the directory specified as parameter
 copy_hooks() {
@@ -56,8 +56,12 @@ copy_hooks() {
 
 echo ""
 echo "Git pre-commit hook installation."
+echo ""
 if [ $# = 1 ] ; then
     if [ -d "$1/.git" ] ; then
+        echo "Copying prerequisites."
+        cp -i "$SCRIPTPATH/canonicalizeFilename.sh" "$1/.git/hooks/"
+        echo ""
         copy_hooks "$1/.git"
         echo ""
         echo "Finished installation."

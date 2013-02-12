@@ -18,12 +18,13 @@ HOOKS="pre-commit-default pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
 
+source $(dirname "$0")/"canonicalizeFilename.sh"
 
 # exit on error
 set -e
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
-SCRIPT="$(readlink -f "$0")"
+SCRIPT="$(canonicalizeFilename "$0")"
 
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH="$(dirname "$SCRIPT")"
