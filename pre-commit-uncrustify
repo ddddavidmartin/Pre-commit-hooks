@@ -15,13 +15,17 @@
 
 ##################################################################
 # SETTINGS
+# set path to uncrustify binary
+# UNCRUSTIFY="/usr/bin/uncrustify"
+UNCRUSTIFY="/usr/bin/uncrustify"
+
 # set uncrustify config location
 # CONFIG="/home/user/.config/uncrustify.cfg"
 CONFIG="/unspecified/"
 
-# set path to uncrustify binary
-# UNCRUSTIFY="/usr/bin/uncrustify"
-UNCRUSTIFY="/usr/bin/uncrustify"
+# the source language: C, CPP, D, CS, JAVA, PAWN, VALA, OC, OC+
+# SOURCE_LANGUAGE="CPP"
+SOURCE_LANGUAGE="OC"
 
 # remove any older patches from previous commits. Set to true or false.
 # DELETE_OLD_PATCHES=false
@@ -100,7 +104,8 @@ do
     #    +++ - timestamp
     # to both lines working on the same file and having a a/ and b/ prefix.
     # Else it can not be applied with 'git apply'.
-    "$UNCRUSTIFY" -c "$CONFIG" -f "$file" | diff -u "$file" - | \
+    "$UNCRUSTIFY" -c "$CONFIG" -l "$SOURCE_LANGUAGE" -f "$file" | \
+        diff -u "$file" - | \
         sed -e "1s|--- |--- a/|" -e "2s|+++ -|+++ b/$file|" >> "$patch"
 done
 
