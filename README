@@ -1,6 +1,10 @@
 This repository contains some useful pre-commit hooks to use with git.
 Check INSTALL for documentation on how to install and use these hooks.
 
+canonicalize_filename.sh
+   Provides the ability to canonicalize filenames similar to the GNU version of
+   readlink -f with non GNU versions of readlink.
+
 install_hooks.sh:
     Copy hooks over to your local git repository.
 
