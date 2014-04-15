@@ -23,7 +23,7 @@ function canonicalize_filename () {
     local result=""
 
     # Need to restore the working directory after work.
-    pushd `pwd` > /dev/null
+    pushd "`pwd`" > /dev/null
 
     cd "$(dirname "$target_file")"
     target_file=`basename $target_file`
