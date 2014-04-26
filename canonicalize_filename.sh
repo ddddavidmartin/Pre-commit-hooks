@@ -17,32 +17,32 @@
 # readlink with the -f option.
 #
 # Reference: http://stackoverflow.com/questions/1055671/how-can-i-get-the-behavior-of-gnus-readlink-f-on-a-mac
-function canonicalize_filename () {
-    local target_file=$1
+canonicalize_filename () {
+    local target_file="$1"
     local physical_directory=""
     local result=""
 
     # Need to restore the working directory after work.
-    pushd "`pwd`" > /dev/null
+    local working_dir="`pwd`"
 
     cd -- "$(dirname -- "$target_file")"
-    target_file=$(basename -- "$target_file")
+    target_file="$(basename -- "$target_file")"
 
     # Iterate down a (possible) chain of symlinks
     while [ -L "$target_file" ]
     do
-        target_file=$(readlink -- "$target_file")
+        target_file="$(readlink -- "$target_file")"
         cd -- "$(dirname -- "$target_file")"
-        target_file=$(basename -- "$target_file")
+        target_file="$(basename -- "$target_file")"
     done
 
     # Compute the canonicalized name by finding the physical path
     # for the directory we're in and appending the target file.
-    physical_directory=`pwd -P`
-    result="$physical_directory"/"$target_file"
+    physical_directory="`pwd -P`"
+    result="$physical_directory/$target_file"
 
     # restore the working directory after work.
-    popd > /dev/null
+    cd -- "$working_dir"
 
     echo "$result"
 }

@@ -17,7 +17,7 @@ HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
 
-source -- "$(dirname -- "$0")/canonicalize_filename.sh"
+. "$(dirname -- "$0")/canonicalize_filename.sh"
 
 # exit on error
 set -e
