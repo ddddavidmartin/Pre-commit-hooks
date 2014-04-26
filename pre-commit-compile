@@ -23,16 +23,16 @@ OPTIONS="--quiet"
 ###########################################################
 # There should be no need to change anything below this line.
 
-source "$(dirname "$0")/canonicalize_filename.sh"
+source -- "$(dirname -- "$0")/canonicalize_filename.sh"
 
 # exit on error
 set -e
 
-MAKEPATH="$(dirname "$MAKEFILE")"
+MAKEPATH="$(dirname -- "$MAKEFILE")"
 
 echo "Building project."
 if [ -f "$MAKEFILE" ] ; then
-    cd "$MAKEPATH"
+    cd -- "$MAKEPATH"
     make $OPTIONS -f "$MAKEFILE"
     if [ $? != 0 ] ; then
         echo "Build failure. Aborting commit."

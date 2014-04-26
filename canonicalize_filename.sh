@@ -25,15 +25,15 @@ function canonicalize_filename () {
     # Need to restore the working directory after work.
     pushd "`pwd`" > /dev/null
 
-    cd "$(dirname "$target_file")"
-    target_file=$(basename "$target_file")
+    cd -- "$(dirname -- "$target_file")"
+    target_file=$(basename -- "$target_file")
 
     # Iterate down a (possible) chain of symlinks
     while [ -L "$target_file" ]
     do
-        target_file=$(readlink "$target_file")
-        cd "$(dirname "$target_file")"
-        target_file=$(basename "$target_file")
+        target_file=$(readlink -- "$target_file")
+        cd -- "$(dirname -- "$target_file")"
+        target_file=$(basename -- "$target_file")
     done
 
     # Compute the canonicalized name by finding the physical path
