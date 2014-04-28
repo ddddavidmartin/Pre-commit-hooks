@@ -106,7 +106,7 @@ do
     # Else it can not be applied with 'git apply'.
     "$UNCRUSTIFY" -c "$CONFIG" -l "$SOURCE_LANGUAGE" -f "$file" | \
         diff -u -- "$file" - | \
-        sed -e "1s|--- |--- a/|" -e "2s|+++ -|+++ b/$file|" >> "$patch"
+        sed -e "1s|--- $file|--- \"a/$file\"|" -e "2s|+++ -|+++ \"b/$file\"|" >> "$patch"
 done
 
 # if no patch has been generated all is ok, clean up the file stub and exit
