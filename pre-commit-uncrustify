@@ -15,9 +15,9 @@
 
 ##################################################################
 # SETTINGS
-# set path to uncrustify binary
+# set uncrustify path or executable
 # UNCRUSTIFY="/usr/bin/uncrustify"
-UNCRUSTIFY="/usr/bin/uncrustify"
+UNCRUSTIFY="uncrustify"
 
 # set uncrustify config location
 # CONFIG="/home/user/.config/uncrustify.cfg"
@@ -75,7 +75,7 @@ if [ ! -f "$CONFIG" ] ; then
     exit 1
 fi
 
-if [ ! -x "$UNCRUSTIFY" ] ; then
+if ! command -v "$UNCRUSTIFY" > /dev/null ; then
     printf "Error: uncrustify executable not found.\n"
     printf "Set the correct path in $(canonicalize_filename "$0").\n"
     exit 1
