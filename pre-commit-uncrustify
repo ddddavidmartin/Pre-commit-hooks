@@ -111,7 +111,7 @@ do
     #        in the filename
     # printf %s particularly important if the filename contains the % character
     file_escaped_source=$(printf "%s" "$file" | sed -e 's/[\*[|]/\\&/g')
-    
+
     # escape special characters in the target filename:
     # phase 1 (characters escaped in the output diff):
     #     - '\': baskslash needs to be escaped in the output diff
