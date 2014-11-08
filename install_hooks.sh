@@ -46,7 +46,7 @@ copy_hooks() {
     do
         if [ ! -x "$1/hooks/$hook" ] ; then
             echo "$hook is not executable. Fix it by calling"
-            echo "sudo chmod +x $1/hooks/$hook"
+            echo "chmod +x $1/hooks/$hook"
         else
             echo "$hook OK."
         fi
