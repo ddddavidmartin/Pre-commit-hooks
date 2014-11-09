@@ -37,7 +37,7 @@ copy_hooks() {
     for hook in $HOOKS
     do
         echo "Copying $hook to $1/hooks."
-        cp -i -- "$SCRIPTPATH/$hook" "$1/hooks"
+        cp -i -- "$SCRIPTPATH/$hook" "$1/hooks" || true
     done
 
     echo ""
@@ -60,7 +60,7 @@ echo ""
 if [ $# = 1 ] ; then
     if [ -d "$1/.git" ] ; then
         echo "Copying prerequisites."
-        cp -i -- "$SCRIPTPATH/canonicalize_filename.sh" "$1/.git/hooks/"
+        cp -i -- "$SCRIPTPATH/canonicalize_filename.sh" "$1/.git/hooks/" || true
         echo ""
         copy_hooks "$1/.git"
         echo ""
