@@ -3,7 +3,8 @@ Check INSTALL for documentation on how to install and use these hooks.
 
 canonicalize_filename.sh
    Provides the ability to canonicalize filenames similar to the GNU version of
-   readlink -f with non GNU versions of readlink.
+   readlink -f with non GNU versions of readlink. Required for example  for the
+   hooks to run on Mac OS.
 
 install_hooks.sh:
     Copy hooks over to your local git repository.
@@ -20,4 +21,5 @@ pre-commit-default:
 
 pre-commit-uncrustify:
     Run uncrustify on your sourcefiles and abort the commit if style violations
-    have been detected. Generate a patch to fix these violations.
+    have been detected. Generate a patch to fix these violations and print the
+    command to apply it.
