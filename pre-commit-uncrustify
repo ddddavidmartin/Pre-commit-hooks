@@ -14,7 +14,7 @@
 
 
 ##################################################################
-# SETTINGS
+# CONFIGURATION
 # set uncrustify path or executable
 # UNCRUSTIFY="/usr/bin/uncrustify"
 UNCRUSTIFY="uncrustify"

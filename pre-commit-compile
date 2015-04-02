@@ -11,7 +11,7 @@
 
 
 ###########################################################
-# SETTINGS:
+# CONFIGURATION:
 # Path to your makefile
 # MAKEFILE="/home/user/project/src/Makefile"
 MAKEFILE="/home/user/project/src/Makefile"
