@@ -17,12 +17,12 @@ Included hooks:
 
 * pre-commit-uncrustify:
 
-    Run Uncrustify on your sourcefiles and abort the commit if style violations
+    Run [Uncrustify](http://uncrustify.sourceforge.net/) on your sourcefiles and abort the commit if style violations
     have been detected. Generate a patch to fix these violations.
 
 Example:
 =======
-Everything is explained more easily with a few pictures. For example the Uncrustify hook.
+Everything is explained more easily with a few pictures. For example the [Uncrustify](http://uncrustify.sourceforge.net/) hook.
 
 * Add or edit a file and work on some code
 
