@@ -84,9 +84,9 @@ if ! command -v "$UNCRUSTIFY" > /dev/null ; then
     exit 1
 fi
 
-# create a random filename to store our generated patch
+# create a filename to store our generated patch
 prefix="pre-commit-uncrustify"
-suffix="$(date +%s)"
+suffix="$(date +%C%y-%m-%d_%Hh%Mm%Ss)"
 patch="/tmp/$prefix-$suffix.patch"
 
 # clean up any older uncrustify patches
