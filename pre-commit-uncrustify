@@ -103,7 +103,7 @@ do
     fi
 
     # escape special characters in the source filename:
-    # - '\': baskslash needs to be escaped
+    # - '\': backslash needs to be escaped
     # - '*': used as matching string => '*' would mean expansion
     #        (curiously, '?' must not be escaped)
     # - '[': used as matching string => '[' would mean start of set
@@ -114,11 +114,11 @@ do
 
     # escape special characters in the target filename:
     # phase 1 (characters escaped in the output diff):
-    #     - '\': baskslash needs to be escaped in the output diff
+    #     - '\': backslash needs to be escaped in the output diff
     #     - '"': quote needs to be escaped in the output diff if present inside
     #            of the filename, as it used to bracket the entire filename part
     # phase 2 (characters escaped in the match replacement):
-    #     - '\': baskslash needs to be escaped again for the sed itself
+    #     - '\': backslash needs to be escaped again for sed itself
     #            (i.e. double escaping after phase 1)
     #     - '&': would expand to matched string
     #     - '|': used as sed split char instead of '/'
