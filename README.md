@@ -1,6 +1,6 @@
 This repository contains some useful and documented pre-commit hooks to use with git.
 
-Included hooks:
+Included hooks
 ============
 * pre-commit:
 
@@ -20,13 +20,13 @@ Included hooks:
     Run [Uncrustify](http://uncrustify.sourceforge.net/) on your sourcefiles and abort the commit if style violations
     have been detected. Generate a patch to fix these violations.
 
-Features:
+Features
 =========
 * Shell agnostic, should work with any Posix compliant shell
 * Robust against whitespaces and special characters in file names and directories
 * Tested on Linux and Mac OS
 
-Example:
+Example
 =======
 Everything is explained more easily with a few pictures. For example the [Uncrustify](http://uncrustify.sourceforge.net/) hook.
 
