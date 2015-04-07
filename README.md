@@ -1,5 +1,12 @@
 This repository contains some useful and documented pre-commit hooks to use with git.
 
+## Table of contents
+
+* [Included hooks](#included-hooks)
+* [Features](#features)
+* [Example](#example)
+* [Installation](#installation)
+
 ## Included hooks
 
 hook | description
