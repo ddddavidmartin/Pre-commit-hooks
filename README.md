@@ -44,17 +44,17 @@ Everything is explained more easily with a few pictures. For example the [Uncrus
 
 1. Clone the repository
 
-```
-git clone git://github.com/githubbrowser/Pre-commit-hooks.git
-```
+    ```
+    git clone git://github.com/githubbrowser/Pre-commit-hooks.git
+    ```
 
 2. Every script has a section named `CONFIGURATION` at the top. Here you will find relevant configuration options. Update the configuration section in `install_hooks.sh` with the hooks that you want to install.
 
 3. Copy the pre-commit hooks into your repository. Note that the script will ask before overwriting any existing hooks.
 
-```
-./install_hooks.sh /path/to/repository
-```
+    ```
+    ./install_hooks.sh /path/to/repository
+    ```
 
 4. The pre-commit hooks live in the `.git/hooks` subdirectory of your git repository. Update their configuration sections if required and you are good to go. By default the hooks will abort the commit and print a notice if any required configuration is missing.
 
