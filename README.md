@@ -14,6 +14,7 @@ pre-commit-uncrustify | Run [Uncrustify](http://uncrustify.sourceforge.net/) on 
 * Shell agnostic, should work with any Posix compliant shell
 * Robust against whitespaces and special characters in file names and directories
 * Tested on Linux and Mac OS
+* The hooks can easily be extended and run side by side with existing ones
 
 ## Example
 
