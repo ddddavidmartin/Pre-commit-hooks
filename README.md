@@ -24,7 +24,7 @@ Everything is explained more easily with a few pictures. For example the [Uncrus
 
 ![Work on code](example_pictures/work_on_code.png)
 
-* Add changes
+* Stage changes
 
 ![Add changes](example_pictures/add_file.png)
 
