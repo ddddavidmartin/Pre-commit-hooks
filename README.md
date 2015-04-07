@@ -4,7 +4,7 @@ This repository contains some useful and documented pre-commit hooks to use with
 
 * [Included hooks](#included-hooks)
 * [Features](#features)
-* [Example](#example)
+* [Usage Example](#usage-example)
 * [Installation](#installation)
 
 ## Included hooks
@@ -23,9 +23,9 @@ pre-commit-uncrustify | Run [Uncrustify](http://uncrustify.sourceforge.net/) on 
 * Tested on Linux and Mac OS
 * The hooks can easily be extended and run side by side with existing ones
 
-## Example
+## Usage example
 
-Everything is explained more easily with a few pictures. For example the [Uncrustify](http://uncrustify.sourceforge.net/) hook.
+Sometimes pictures say more than a thousand words. Below is an exemplary workflow using the [Uncrustify](http://uncrustify.sourceforge.net/) hook.
 
 * Add or edit a file and work on some code
 
