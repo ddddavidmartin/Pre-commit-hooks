@@ -30,9 +30,6 @@ SCRIPTPATH="$(dirname -- "$SCRIPT")"
 
 # copy hooks to the directory specified as parameter
 copy_hooks() {
-    # create hooks subfolder if it does not yet exist
-    mkdir -p -- "$1/hooks"
-
     echo "Copying hooks to destination directory:"
     for hook in $HOOKS
     do
@@ -59,6 +56,9 @@ echo "Git pre-commit hook installation."
 echo ""
 if [ $# = 1 ] ; then
     if [ -d "$1/.git" ] ; then
+        # create hooks subfolder if it does not yet exist
+        mkdir -p -- "$1/.git/hooks"
+
         echo "Copying prerequisites."
         cp -i -- "$SCRIPTPATH/canonicalize_filename.sh" "$1/.git/hooks/" || true
         echo ""
