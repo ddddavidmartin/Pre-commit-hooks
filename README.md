@@ -14,7 +14,6 @@ hook | description
 ------------ | -------------
 [pre-commit](pre-commit) | Allow to run multiple pre-commit hooks as specified in the script.
 [pre-commit-compile](pre-commit-compile) | Compile the project and abort commit if it fails.
-[pre-commit-default](pre-commit-default) | The default git pre-commit hook checking for example for trailing whitespaces.
 [pre-commit-uncrustify](pre-commit-uncrustify) | Run [Uncrustify](http://uncrustify.sourceforge.net/) on your sourcefiles and abort the commit if style violations have been detected. Generate a patch to fix these violations.
 
 ## Features

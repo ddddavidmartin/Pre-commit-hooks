@@ -12,8 +12,8 @@
 ###########################################################
 # CONFIGURATION:
 # select which pre-commit hooks are going to be installed
-#HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
-HOOKS="pre-commit pre-commit-default pre-commit-compile pre-commit-uncrustify"
+#HOOKS="pre-commit pre-commit-compile pre-commit-uncrustify"
+HOOKS="pre-commit pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
 
