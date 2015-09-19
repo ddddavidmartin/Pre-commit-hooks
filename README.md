@@ -7,6 +7,7 @@ This repository contains some useful and documented pre-commit hooks to use with
 * [Usage Example](#usage-example)
 * [Installation](#installation)
 * [Contributions](#contributions)
+* [License](#license)
 
 ## Included hooks
 
@@ -74,3 +75,7 @@ Sometimes pictures say more than a thousand words. Below is an exemplary workflo
 Thanks to [everyone](https://github.com/githubbrowser/Pre-commit-hooks/graphs/contributors) who contributed with fixes, ideas and extensions!
 
 Feel free to open issues or pull requests if you come across something that can be improved or does not work. Input is always appreciated.
+
+## License
+
+Licensed as per [LICENSE file](LICENSE).
