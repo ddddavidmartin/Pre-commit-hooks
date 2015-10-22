@@ -55,14 +55,19 @@ echo ""
 echo "Git pre-commit hook installation."
 echo ""
 if [ $# = 1 ] ; then
-    if [ -d "$1/.git" ] ; then
+    if [ -e "$1/.git" ] ; then
+        if [ -d "$1/.git" ] ; then
+            GIT_FOLDER=$1/.git
+        else
+            GIT_FOLDER=$1/`cat $1/.git | awk '{ print ($2) }'`
+        fi
         # create hooks subfolder if it does not yet exist
-        mkdir -p -- "$1/.git/hooks"
+        mkdir -p -- "$GIT_FOLDER/hooks"
 
         echo "Copying prerequisites."
-        cp -i -- "$SCRIPTPATH/canonicalize_filename.sh" "$1/.git/hooks/" || true
+        cp -i -- "$SCRIPTPATH/canonicalize_filename.sh" "$GIT_FOLDER/hooks/" || true
         echo ""
-        copy_hooks "$1/.git"
+        copy_hooks "$GIT_FOLDER"
         echo ""
         echo "Finished installation."
     else
