@@ -1,5 +1,6 @@
 This repository contains some useful and documented pre-commit hooks to use with git.
 
+
 ## Table of contents
 
 * [Included hooks](#included-hooks)
@@ -7,6 +8,7 @@ This repository contains some useful and documented pre-commit hooks to use with
 * [Usage Example](#usage-example)
 * [Installation](#installation)
 * [Contributions](#contributions)
+
 
 ## Included hooks
 
@@ -17,12 +19,14 @@ hook | description
 [pre-commit-default](pre-commit-default) | The default git pre-commit hook checking for example for trailing whitespaces.
 [pre-commit-uncrustify](pre-commit-uncrustify) | Run [Uncrustify](http://uncrustify.sourceforge.net/) on your sourcefiles and abort the commit if style violations have been detected. Generate a patch to fix these violations.
 
+
 ## Features
 
 * Shell agnostic, should work with any Posix compliant shell
 * Robust against whitespaces and special characters in file names and directories
 * Tested on Linux and Mac OS
 * The hooks can easily be extended and run side by side with existing ones
+
 
 ## Usage example
 
@@ -48,6 +52,7 @@ Sometimes pictures say more than a thousand words. Below is an exemplary workflo
 
 ![Commit changes again](example_pictures/commit_changes_again.png)
 
+
 ## Installation
 
 1. Clone the repository
@@ -69,6 +74,7 @@ Sometimes pictures say more than a thousand words. Below is an exemplary workflo
 5. Work on your code as usual and the hooks should be run automatically when calling `git commit`.
 
 6. Profit!
+
 
 ## Contributions
 
