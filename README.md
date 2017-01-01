@@ -36,15 +36,15 @@ Sometimes pictures say more than a thousand words. Below is an exemplary workflo
 
 ![Work on code](example_pictures/work_on_code.png)
 
-* Stage changes
+* Stage the changes
 
 ![Add changes](example_pictures/add_file.png)
 
-* Attempt to commit changes
+* Attempt to commit the changes
 
 ![Commit changes](example_pictures/commit_changes.png)
 
-* Apply the automatically created patch to fix the formatting
+* Apply the automatically created patch to fix the formatting, and re-stage the formatting changes so that they are committed
 
 ![Apply patch](example_pictures/apply_patch.png)
 
