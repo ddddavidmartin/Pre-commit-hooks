@@ -8,14 +8,9 @@
 # Link:    https://github.com/githubbrowser/Pre-commit-hooks
 # Contact: David Martin, david.martin.mailbox@googlemail.com
 
-
-###########################################################
-# CONFIGURATION:
-# select which pre-commit hooks are going to be installed
-#HOOKS="pre-commit pre-commit-compile pre-commit-uncrustify"
-HOOKS="pre-commit pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
+# For configuration see install_hooks.cfg and install_hooks.example.cfg.
 
 . "$(dirname -- "$0")/canonicalize_filename.sh"
 
@@ -27,6 +22,15 @@ SCRIPT="$(canonicalize_filename "$0")"
 
 # Absolute path this script is in, e.g. /home/user/bin/
 SCRIPTPATH="$(dirname -- "$SCRIPT")"
+
+CONFIG="$SCRIPTPATH/install_hooks.cfg"
+
+if [ ! -f "$CONFIG" ] ; then
+    echo "Missing config file $CONFIG."
+    exit 1
+else
+    . "$CONFIG"
+fi
 
 # copy hooks to the directory specified as parameter
 copy_hooks() {
