@@ -9,24 +9,27 @@
 # Link:    https://github.com/githubbrowser/Pre-commit-hooks
 # Contact: David Martin, david.martin.mailbox@googlemail.com
 
-
-###########################################################
-# CONFIGURATION:
-# Path to your makefile
-# MAKEFILE="/home/user/project/src/Makefile"
-MAKEFILE="/home/user/project/src/Makefile"
-
-# Additional options for the make call. Eg. --quiet to not print any output
-# or -j to make use of multiple cpu cores.
-# OPTIONS="--quiet -j"
-OPTIONS="--quiet"
 ###########################################################
 # There should be no need to change anything below this line.
+# For configuration see pre-commit-compile.cfg and pre-commit-compile.example.cfg.
 
 . "$(dirname -- "$0")/canonicalize_filename.sh"
 
 # exit on error
 set -e
+
+# Absolute path to this script, e.g. /home/user/bin/foo.sh
+SCRIPT="$(canonicalize_filename "$0")"
+# Absolute path this script is in, e.g. /home/user/bin/
+SCRIPTPATH="$(dirname -- "$SCRIPT")"
+CONFIG="$SCRIPTPATH/pre-commit-compile.cfg"
+
+if [ ! -f "$CONFIG" ] ; then
+    echo "Missing config file $CONFIG."
+    exit 1
+else
+    . "$CONFIG"
+fi
 
 MAKEPATH="$(dirname -- "$MAKEFILE")"
 
@@ -41,7 +44,7 @@ if [ -f "$MAKEFILE" ] ; then
     echo "Build success."
 else
     echo "Error: Makefile not found. Aborting commit."
-    echo "Set the correct path in $(canonicalize_filename "$0")."
+    echo "Set the correct path in $CONFIG."
     echo "Skip pre-commit hooks with --no-verify (not recommended)."
     exit 1
 fi
