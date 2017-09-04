@@ -1,5 +1,7 @@
 This repository contains some useful and documented pre-commit hooks to use with git.
 
+**NOTE:** The scripts in this repository are currently not actively being developed. They have served me well though and work as they are. [pre-commit.com](http://pre-commit.com/) looks like a well-maintained alternative with a similar approach. Also, live linters like [w0rp/ale](https://github.com/w0rp/ale) are pretty awesome!
+
 ## Table of contents
 
 * [Included hooks](#included-hooks)
