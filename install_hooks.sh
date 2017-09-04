@@ -45,14 +45,15 @@ copy_hooks() {
         echo "Copying $hook to $1/hooks."
         cp -i -- "$SCRIPTPATH/$hook" "$1/hooks" || true
 
-        if [ -f "$SCRIPTPATH/$hook.example.cfg" ] ; then
-            echo "Copying example config $hook.example.cfg."
-            cp -i -- "$SCRIPTPATH/$hook.example.cfg" "$1/hooks" || true
-        fi
-
         if [ -f "$SCRIPTPATH/$hook.cfg" ] ; then
             echo "Copying config $hook.cfg."
             cp -i -- "$SCRIPTPATH/$hook.cfg" "$1/hooks" || true
+
+        # If the proper config file does not exist then we simply install the
+        # hook and let it use the example config file.
+        elif [ -f "$SCRIPTPATH/$hook.example.cfg" ] ; then
+            echo "Copying example config $hook.example.cfg."
+            cp -i -- "$SCRIPTPATH/$hook.example.cfg" "$1/hooks/$hook.cfg" || true
         fi
     done
 
