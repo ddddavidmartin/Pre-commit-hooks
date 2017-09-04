@@ -39,6 +39,16 @@ copy_hooks() {
     do
         echo "Copying $hook to $1/hooks."
         cp -i -- "$SCRIPTPATH/$hook" "$1/hooks" || true
+
+        if [ -f "$SCRIPTPATH/$hook.example.cfg" ] ; then
+            echo "Copying example config $hook.example.cfg."
+            cp -i -- "$SCRIPTPATH/$hook.example.cfg" "$1/hooks" || true
+        fi
+
+        if [ -f "$SCRIPTPATH/$hook.cfg" ] ; then
+            echo "Copying config $hook.cfg."
+            cp -i -- "$SCRIPTPATH/$hook.cfg" "$1/hooks" || true
+        fi
     done
 
     echo ""
