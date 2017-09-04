@@ -54,17 +54,23 @@ Sometimes pictures say more than a thousand words. Below is an exemplary workflo
 
     ```
     git clone git://github.com/githubbrowser/Pre-commit-hooks.git
+    cd Pre-commit-hooks
     ```
 
-2. Every script has a section named `CONFIGURATION` at the top. Here you will find relevant configuration options. Update the configuration section in `install_hooks.sh` with the hooks that you want to install.
+2. Every script comes with a `<script>.example.cfg` configuration file. Here you will find relevant configuration options. For starters create a `pre-commit.cfg` and update the configuration section in it with the hooks that you want to install and use.
 
-3. Copy the pre-commit hooks into your repository. Note that the script will ask before overwriting any existing hooks.
+    ```
+    cp pre-commit.example.cfg pre-commit.cfg
+    vim pre-commit.cfg  # update with desired hooks
+    ```
+
+3. Copy the pre-commit hooks into your repository. Note that the script will ask before overwriting any existing hooks. By default it installs the example config for each hook.
 
     ```
     ./install_hooks.sh /path/to/repository
     ```
 
-4. The pre-commit hooks live in the `.git/hooks` subdirectory of your git repository. Update their configuration sections if required and you are good to go. By default the hooks will abort the commit and print a notice if any required configuration is missing.
+4. The pre-commit hooks live in the `.git/hooks` subdirectory of your git repository. Update their configuration files if required and you are good to go. By default the hooks will abort the commit and print a notice if any required configuration is missing.
 
 5. Work on your code as usual and the hooks should be run automatically when calling `git commit`.
 

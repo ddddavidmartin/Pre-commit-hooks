@@ -7,16 +7,9 @@
 # Link:    https://github.com/githubbrowser/Pre-commit-hooks
 # Contact: David Martin, david.martin.mailbox@googlemail.com
 
-
-###########################################################
-# CONFIGURATION:
-# pre-commit hooks to be executed. They should be in the same .git/hooks/ folder
-# as this script. Hooks should return 0 if successful and nonzero to cancel the
-# commit. They are executed in the order in which they are listed.
-#HOOKS="pre-commit-compile pre-commit-uncrustify"
-HOOKS="pre-commit-compile pre-commit-uncrustify"
 ###########################################################
 # There should be no need to change anything below this line.
+# For configuration see pre-commit.cfg and pre-commit.example.cfg.
 
 . "$(dirname -- "$0")/canonicalize_filename.sh"
 
@@ -25,10 +18,17 @@ set -e
 
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT="$(canonicalize_filename "$0")"
-
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH="$(dirname -- "$SCRIPT")"
+CONFIG="$SCRIPTPATH/pre-commit.cfg"
 
+if [ ! -f "$CONFIG" ] ; then
+    echo "Missing config file $CONFIG."
+    echo "You can skip all pre-commit hooks with --no-verify (not recommended)."
+    exit 1
+else
+    . "$CONFIG"
+fi
 
 for hook in $HOOKS
 do
@@ -43,7 +43,7 @@ do
     else
         echo "Error: file $hook not found."
         echo "Aborting commit. Make sure the hook is in $SCRIPTPATH and executable."
-        echo "You can disable it by removing it from the list in $SCRIPT."
+        echo "You can disable it by removing it from the list in $CONFIG."
         echo "You can skip all pre-commit hooks with --no-verify (not recommended)."
         exit 1
     fi
