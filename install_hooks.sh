@@ -10,7 +10,7 @@
 
 ###########################################################
 # There should be no need to change anything below this line.
-# For configuration see install_hooks.cfg and install_hooks.example.cfg.
+# For configuration see pre-commit.cfg and pre-commit.example.cfg.
 
 . "$(dirname -- "$0")/canonicalize_filename.sh"
 
@@ -23,7 +23,7 @@ SCRIPT="$(canonicalize_filename "$0")"
 # Absolute path this script is in, e.g. /home/user/bin/
 SCRIPTPATH="$(dirname -- "$SCRIPT")"
 
-CONFIG="$SCRIPTPATH/install_hooks.cfg"
+CONFIG="$SCRIPTPATH/pre-commit.cfg"
 
 if [ ! -f "$CONFIG" ] ; then
     echo "Missing config file $CONFIG."
@@ -34,6 +34,11 @@ fi
 
 # copy hooks to the directory specified as parameter
 copy_hooks() {
+    # We take the hooks to be installed from the pre-commit config but need to
+    # make sure that it is installed as well as it is required to actually run
+    # the hooks.
+    HOOKS="pre-commit $HOOKS"
+
     echo "Copying hooks to destination directory:"
     for hook in $HOOKS
     do
