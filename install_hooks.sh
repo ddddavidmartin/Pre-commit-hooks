@@ -5,8 +5,8 @@
 
 # This file is part of a set of unofficial pre-commit hooks available
 # at github.
-# Link:    https://github.com/githubbrowser/Pre-commit-hooks
-# Contact: David Martin, david.martin.mailbox@googlemail.com
+# Link:    https://github.com/ddddavidmartin/Pre-commit-hooks
+# Contact: David Martin, ddddavidmartin@fastmail.com
 
 ###########################################################
 # There should be no need to change anything below this line.

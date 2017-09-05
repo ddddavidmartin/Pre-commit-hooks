@@ -55,7 +55,7 @@ Sometimes pictures say more than a thousand words. Below is an exemplary workflo
 1. Clone the repository
 
     ```
-    git clone git://github.com/githubbrowser/Pre-commit-hooks.git
+    git clone git://github.com/ddddavidmartin/Pre-commit-hooks.git
     cd Pre-commit-hooks
     ```
 
@@ -80,7 +80,7 @@ Sometimes pictures say more than a thousand words. Below is an exemplary workflo
 
 ## Contributions
 
-Thanks to [everyone](https://github.com/githubbrowser/Pre-commit-hooks/graphs/contributors) who contributed with fixes, ideas and extensions!
+Thanks to [everyone](https://github.com/ddddavidmartin/Pre-commit-hooks/graphs/contributors) who contributed with fixes, ideas and extensions!
 
 Feel free to open issues or pull requests if you come across something that can be improved or does not work. Input is always appreciated.
 

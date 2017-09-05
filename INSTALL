@@ -2,10 +2,10 @@ How to get the pre-commit hooks.
 ================================
 
 The hooks coming with this file are located at
-https://github.com/githubbrowser/Pre-commit-hooks
+https://github.com/ddddavidmartin/Pre-commit-hooks
 
 You can download them directly or do a checkout with
-git clone git://github.com/githubbrowser/Pre-commit-hooks.git git-hooks
+git clone git://github.com/ddddavidmartin/Pre-commit-hooks.git git-hooks
 
 
 How to install the pre-commit hooks.
