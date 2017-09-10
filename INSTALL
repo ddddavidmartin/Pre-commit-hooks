@@ -22,17 +22,17 @@ pre-commit file included with these scripts to have it executed as
 before.
 
 Some of the pre-commit hooks have settings that need to be specified.
-They should be self-explanatory and are located at the top of the
-respective file. If a hook fails because of invalid settings it will
-report it and abort the commmit.
+They should be self-explanatory and are located in a respective <hook>.cfg
+file. If a hook fails because of invalid settings it will report it and abort
+the commmit.
 
 
 How to select which hooks are installed or executed.
 ====================================================
 
-You can specify which hooks are installed in install_hooks.sh.
-You can specify which hooks are run before commits in pre-commit.
-Note that by default all hooks are installed and specified to be run.
+You can specify which hooks are installed and run before commits in
+pre-commit.cfg. Note that by default all hooks are installed and specified to
+be run.
 
 
 How to use the pre-commit hooks.
